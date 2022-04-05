@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+inst/slides/*.html
+inst/slides/**/*_files/
+inst/slides/00-slide-template/libs/
+inst/slides/00-slide-template/*.html
