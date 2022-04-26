@@ -19,7 +19,10 @@ Imports:
     ggplot2, 
     ggtext, 
     knitr,
+    rmarkdown,
+    stringr,
     tibble,
     tools,
+    xaringan,
     xaringanExtra
 VignetteBuilder: knitr

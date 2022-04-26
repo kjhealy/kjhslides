@@ -21,34 +21,197 @@
 setup_slides <- function(folder, zipfile = "slides.zip",
                          slidefolder = "slides",
                          destfolder = "slides") {
+
   if(missing(folder)) {
-    message("You must specify a destination for the notes, e.g., 'here::here()'")
-  } else {
-    file_name <- zipfile
-    lib_loc <- fs::path_package("kjhslides")
+    stop("You must specify a destination for the notes, e.g., 'here::here()'")
+  }
 
-    ## zipped version of slides is stored in package "resources" folder
-    origin_path <- fs::path(lib_loc, "resources", file_name)
-    dest_path <- fs::path_expand(folder)
+  file_name <- zipfile
+  lib_loc <- fs::path_package("kjhslides")
 
-    if(fs::dir_exists(dest_path)) {
+  ## zipped version of slides is stored in package "resources" folder
+  origin_path <- fs::path(lib_loc, "resources", file_name)
+  dest_path <- fs::path_expand(folder)
 
-      fs::file_copy(origin_path, dest_path)
+  if(!fs::dir_exists(dest_path)) {
+    stop(paste("Cannot copy notes to the folder", dest_path, "because it does not exist."))
+  }
 
-      dest_file <- fs::path(dest_path, file_name)
-      fs::dir_create(dest_path, slidefolder)
-      dest_dir_name <- fs::path(dest_path)
+  fs::file_copy(origin_path, dest_path)
 
-      utils::unzip(dest_file, exdir = dest_dir_name)
+  dest_file <- fs::path(dest_path, file_name)
+  fs::dir_create(dest_path, slidefolder)
+  dest_dir_name <- fs::path(dest_path)
 
-      # Remove zipfile
-      fs::file_delete(dest_file)
+  utils::unzip(dest_file, exdir = dest_dir_name)
 
-      message(paste("Copied", file_name, "to", dest_path, "and expanded it into", dest_dir_name))
-    } else {
-      message(paste("Failed. Cannot copy notes to the folder", dest_path, "because it does not exist."))}
+  # Remove zipfile
+  fs::file_delete(dest_file)
+
+  message(paste("Copied", file_name, "to", dest_path, "and expanded it into", dest_dir_name))
+
+}
+
+#' Check if in and out folders exist
+#'
+#' @param indir Input directory path
+#' @param outdir Output directory path
+#'
+#' @return Stops if they don't
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+check_in_out <- function(indir, outdir) {
+  if(!fs::dir_exists(indir)) {
+    stop("The input directory does not exist.")
+  }
+
+  if(!fs::dir_exists(outdir)) {
+    stop("The output directory does not exist.")
   }
 }
+
+#' Get filepaths of given type, possibly reursively
+#'
+#' @param ftype Filetype glob, defaults to '*.Rmd'
+#' @param indir Directory to begin search in
+#' @param depth Recursion depth, defaults to 1 (ie inside subfolders)
+#'
+#' @return Vector of file paths
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+get_files_of_type <- function(ftype = "*.Rmd", indir, depth = 1){
+  tibble::tibble(
+    inpath =
+      fs::dir_ls(
+        path = here::here(indir),
+        recurse = depth,
+        glob = ftype
+      ))
+}
+
+#' Purl Rmd to R
+#'
+#' Convert all Rmd files in the slide folder to R files in the code folder
+#'
+#' @param indir The source dir, default slides, crawled recursively
+#' @param outdir The output dir, default code
+#'
+#' @return Side effect; code/ folder of purled .R files.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_purl_slides <- function(indir = "slides", outdir = "code") {
+
+  check_in_out(indir = indir, outdir = outdir)
+
+  fnames <- get_files_of_type(ftype = "*.Rmd",
+                              indir = here::here(indir)) %>%
+    dplyr::mutate(outname = paste0(tools::file_path_sans_ext(basename(inpath)), ".R"),
+                  outpath = here::here(outdir, outname)) %>%
+    dplyr::filter(outname != "00-slides.R")
+
+  purrr:::walk2(fnames$inpath, fnames$outpath, knitr::purl)
+}
+
+
+
+#' Knit all files in the slides dir
+#'
+#' @param indir Input directory (default 'slides')
+#'
+#' @return Side effect; Renders all the Rmd files to html
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_render_all_slides <- function(indir = "slides") {
+
+  if(!fs::dir_exists(indir)) {
+    stop("The input directory does not exist.")
+  }
+
+  fnames <- get_files_of_type(ftype = "*.Rmd",
+                              indir = here::here(indir)) %>%
+    .[.!="00-slides.Rmd"]
+
+  purrr:::walk(fnames, rmarkdown::render)
+}
+
+
+#' Render one slide html file to pdf_slides/file.pdf with decktape
+#'
+#' @param infile Input html file
+#' @param outdir Output directory, defaults to `pdf_slides`
+#'
+#' @return Side-effect; rendered PDF slide file
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
+
+  if(!fs::file_exists(infile)) {
+    stop("The input file does not exist.")
+  }
+
+  if(!fs::dir_exists(here::here(outdir))) {
+    stop(paste("The output directory does not exist at", here::here()))
+  }
+
+  outfile <- here::here(outdir, paste0(tools::file_path_sans_ext(basename(infile)), ".pdf"))
+
+  xaringan::decktape(infile, outfile, docker = FALSE)
+}
+
+
+#' Render all html slide files in a folder (to depth 1) to pdf with decktape
+#'
+#' @param indir Input dir, defaults to 'slides'
+#' @param outdir Output dir, defaults to 'pdf_slides'
+#'
+#' @return Side effect; renders all the html to pdf
+#' @details By default will recurse to 1 level of subdirs
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_decktape_all <- function(indir = "slides", outdir = "pdf_slides") {
+
+  fnames <- get_files_of_type(ftype = "*.html",
+                              indir = here::here(indir)) %>%
+    .[.!="00-slides.html"]
+
+  purrr:::walk(fnames, kjh_decktape_one)
+}
+
 
 #' Clear the systemfonts registry
 #'
@@ -232,47 +395,6 @@ kjh_set_slide_theme <- function() {
 
   ggplot2::theme_set(theme_tenso())
 
-}
-
-
-#' Purl Rmd to R
-#'
-#' Convert all Rmd files in the slide folder to R files in the code folder
-#'
-#' @param indir The source dir, default slides, crawled recursively
-#' @param outdir The output dir, default code
-#'
-#' @return Side effect; code/ folder of purled .R files.
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
-kjh_purl_slides <- function(indir = "slides", outdir = "code") {
-
-  if(!fs::dir_exists(indir)) {
-    stop("The input directory does not exist.")
-  }
-
-  if(!fs::dir_exists(outdir)) {
-    stop("The output directory does not exist.")
-  }
-
-  fnames <- tibble::tibble(
-    inpath =
-      fs::dir_ls(
-        path = here::here(indir),
-        recurse = 1,
-        glob = "*.Rmd"
-      )) %>%
-    dplyr::mutate(outname = paste0(tools::file_path_sans_ext(basename(inpath)), ".R"),
-           outpath = here::here(outdir, outname)) %>%
-    dplyr::filter(outname != "00-slides.R")
-
-  purrr:::walk2(fnames$inpath, fnames$outpath, knitr::purl)
 }
 
 #' Set Xaringan Options
