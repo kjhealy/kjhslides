@@ -251,17 +251,26 @@ kjh_set_slide_theme <- function() {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_slide_purler <- function(indir = "slides", outdir = "code") {
-  fnames <- tibble(
+kjh_purl_slides <- function(indir = "slides", outdir = "code") {
+
+  if(!fs::dir_exists(indir)) {
+    stop("The input directory does not exist.")
+  }
+
+  if(!fs::dir_exists(outdir)) {
+    stop("The output directory does not exist.")
+  }
+
+  fnames <- tibble::tibble(
     inpath =
       fs::dir_ls(
-        path = here::here(dir),
+        path = here::here(indir),
         recurse = 1,
         glob = "*.Rmd"
       )) %>%
-    mutate(outname = paste0(tools::file_path_sans_ext(basename(inpath)), ".R"),
+    dplyr::mutate(outname = paste0(tools::file_path_sans_ext(basename(inpath)), ".R"),
            outpath = here::here(outdir, outname)) %>%
-    filter(outname != "00-template.R")
+    dplyr::filter(outname != "00-slides.R")
 
   purrr:::walk2(fnames$inpath, fnames$outpath, knitr::purl)
 }
