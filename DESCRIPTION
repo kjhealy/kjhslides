@@ -4,8 +4,20 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Kieran", "Healy", , "kjhealy@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-9114-981X"))
-Description: What the package does (one paragraph).
+Description: Slide templating and setup.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Imports: 
+    fs, 
+    magrittr, 
+    purrr, 
+    ragg,
+    systemfonts, 
+    ggplot2, 
+    ggtext, 
+    knitr, 
+    tools,
+    xaringanExtra
+VignetteBuilder: knitr

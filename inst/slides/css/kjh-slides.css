@@ -11,17 +11,17 @@ body {
 
 .kjh-red {
   /*  color: #FB0307;*/
-  color: #eb1e4e;
+  color: #eb1e4eff;
 }
 
 .kjh-orange {
   /*  color: #EF9B2D;*/
-  color: #f68434;
+  color: #f68434ff;
 }
 
 .kjh-yellow {
   /*  color: #FFFF54;*/
-  color: #ffc847;
+  color: #ffc847ff;
 }
 
 /*
@@ -39,16 +39,16 @@ body {
 
 .kjh-blue {
   /*  color: #212E3E;*/
-  color: #073b4c;
+  color: #073b4cff;
 }
 
 .kjh-lblue {
   /*  color: #4EAFF0;*/
-  color: #139fec;
+  color: #139fecff;
 }
 
 .kjh-green {
-  color: #1bb71c;
+  color: #1BB71Cff;
 }
 
 /*
