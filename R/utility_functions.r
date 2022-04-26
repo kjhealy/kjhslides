@@ -206,10 +206,85 @@ kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
 kjh_decktape_all <- function(indir = "slides", outdir = "pdf_slides") {
 
   fnames <- get_files_of_type(ftype = "*.html",
-                              indir = here::here(indir)) %>%
-    .[.!="00-slides.html"]
+                              indir = here::here(indir))
 
   purrr:::walk(fnames, kjh_decktape_one)
+}
+
+
+#' Unname all Rmd chunks in the Rmd folders
+#'
+#' @param indir The input directory, default "slides"
+#'
+#' @return All the Rmd files with their chunk names removed
+#' @details Recurses 1 level (i.e. subdirs) by default
+#' @export
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_unname_all_chunks <- function(indir = "slides") {
+
+  if(!fs::dir_exists(indir)) {
+    stop("The input directory does not exist.")
+  }
+
+  fnames <- get_files_of_type(ftype = "*.Rmd",
+                              indir = here::here(indir))
+
+  fnames <- as.vector(dplyr::pull(fnames))
+
+  purrr:::walk(fnames, namer::unname_chunks)
+}
+
+
+#' Name all Rmd chunks in the Rmd folders
+#'
+#' @param indir The input directory, default "slides"
+#'
+#' @return All the Rmd files with their chunks renamed
+#' @details Recurses 1 level (i.e. subdirs) by default
+#' @export
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_name_all_chunks <- function(indir = "slides") {
+
+  if(!fs::dir_exists(indir)) {
+    stop("The input directory does not exist.")
+  }
+
+  fnames <- get_files_of_type(ftype = "*.Rmd",
+                              indir = here::here(indir))
+
+  fnames <- as.vector(dplyr::pull(fnames))
+
+  purrr:::walk(fnames, namer::name_chunks)
+}
+
+
+#' Relabel all chunks
+#'
+#' @param indir Input directory, default "slides"
+#'
+#' @return All Rmd chunks are unnamed and then renamed
+#' @details Recurses to 1 level of depth (i.e. subdirs)
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_update_all_chunk_names <- function(indir = "slides") {
+  kjh_unname_all_chunks(indir = indir)
+  kjh_name_all_chunks(indir = indir)
 }
 
 
@@ -409,7 +484,7 @@ kjh_set_slide_theme <- function() {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_set_xaringnan_opts <- function() {
+kjh_set_xaringan_opts <- function() {
   xaringanExtra::use_xaringan_extra(c("tile_view"))
   xaringanExtra::use_animate_css()
   xaringanExtra::use_animate_all("fade")
