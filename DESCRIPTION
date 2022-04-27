@@ -17,13 +17,14 @@ Imports:
     ragg,
     systemfonts, 
     ggplot2, 
-    ggtext, 
+    ggtext,
+    htmltools,
     knitr,
     rmarkdown,
     stringr,
     tibble,
     tools,
-    xaringan,
+    xaringan
 Remotes:
     jumpingrivers/namer,
     gadenbuie/xaringanExtra

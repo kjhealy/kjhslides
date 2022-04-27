@@ -512,9 +512,12 @@ kjh_set_slide_theme <- function() {
 #'  }
 #' }
 kjh_set_xaringan_opts <- function() {
-  xaringanExtra::use_xaringan_extra(c("tile_view"))
-  xaringanExtra::use_animate_css()
-  xaringanExtra::use_animate_all("fade")
-  xaringanExtra::use_clipboard()
-}
+  ## We have to wrap the options as a tagList, otherwise
+  ## only the one executed last will be returned.
+  htmltools::tagList(
+    xaringanExtra::use_tile_view(),
+    xaringanExtra::use_animate_css(),
+    xaringanExtra::use_animate_all("fade"),
+    xaringanExtra::use_clipboard())
+  }
 
