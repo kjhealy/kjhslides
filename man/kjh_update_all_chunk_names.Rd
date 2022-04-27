@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_update_all_chunk_names}
 \alias{kjh_update_all_chunk_names}
-\title{Relabel all chunks}
+\title{Convert all chunks}
 \usage{
 kjh_update_all_chunk_names(indir = "slides")
 }
@@ -13,10 +13,11 @@ kjh_update_all_chunk_names(indir = "slides")
 All Rmd chunks are unnamed and then renamed
 }
 \description{
-Relabel all chunks
+Run unname and then rename on all chunks in all files
 }
 \details{
-Recurses to 1 level of depth (i.e. subdirs)
+Recurses to 1 level of depth (i.e. subdirs).
+Right now this will break any references made with chunk_reveal!
 }
 \examples{
 \dontrun{

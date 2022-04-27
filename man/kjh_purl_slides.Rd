@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_purl_slides}
 \alias{kjh_purl_slides}
-\title{Purl Rmd to R}
+\title{Purl all slide .Rmds to .R}
 \usage{
 kjh_purl_slides(indir = "slides", outdir = "code")
 }

@@ -1,7 +1,8 @@
-#' Copy slide infrastructure to a given folder
+#' Copy slide scaffolding to the slides folder
 #'
-#' Transfers a zip file containing course materials from the socviz
+#' Transfers an included zip file containing course materials from the socviz
 #'     library to the Desktop.
+#'
 #' @title setup_slides
 #' @param folder The destination to copy to within the user's home.
 #'     This must be supplied by the user.
@@ -54,6 +55,8 @@ setup_slides <- function(folder, zipfile = "slides.zip",
 
 #' Check if in and out folders exist
 #'
+#' Support function for reading and writing files
+#'
 #' @param indir Input directory path
 #' @param outdir Output directory path
 #'
@@ -75,7 +78,9 @@ check_in_out <- function(indir, outdir) {
   }
 }
 
-#' Get filepaths of given type, possibly reursively
+#' Get vector of filepaths
+#'
+#' Get filepaths of given type, possibly recursively
 #'
 #' @param ftype Filetype glob, defaults to '*.Rmd'
 #' @param indir Directory to begin search in
@@ -100,7 +105,7 @@ get_files_of_type <- function(ftype = "*.Rmd", indir, depth = 1){
       ))
 }
 
-#' Purl Rmd to R
+#' Purl all slide .Rmds to .R
 #'
 #' Convert all Rmd files in the slide folder to R files in the code folder
 #'
@@ -131,7 +136,9 @@ kjh_purl_slides <- function(indir = "slides", outdir = "code") {
 
 
 
-#' Knit all files in the slides dir
+#' Render all the slides
+#'
+#' Knit all files in the slides dir to HTML
 #'
 #' @param indir Input directory (default 'slides')
 #'
@@ -158,6 +165,8 @@ kjh_render_all_slides <- function(indir = "slides") {
 }
 
 
+#' Convert an HTML slide deck to PDF
+#'
 #' Render one slide html file to pdf_slides/file.pdf with decktape
 #'
 #' @param infile Input html file
@@ -188,6 +197,8 @@ kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
 }
 
 
+#' Render everythign inthe `slides` folder to `pdf_slides`
+#'
 #' Render all html slide files in a folder (to depth 1) to pdf with decktape
 #'
 #' @param indir Input dir, defaults to 'slides'
@@ -212,12 +223,14 @@ kjh_decktape_all <- function(indir = "slides", outdir = "pdf_slides") {
 }
 
 
+#' Unname all chunks
+#'
 #' Unname all Rmd chunks in the Rmd folders
 #'
 #' @param indir The input directory, default "slides"
 #'
 #' @return All the Rmd files with their chunk names removed
-#' @details Recurses 1 level (i.e. subdirs) by default
+#' @details Recurses 1 level (i.e. subdirs) by default. Right now this will break any references made with chunk_reveal!
 #' @export
 #' @examples
 #' \dontrun{
@@ -240,12 +253,14 @@ kjh_unname_all_chunks <- function(indir = "slides") {
 }
 
 
+#' Rename all chunks
+#'
 #' Name all Rmd chunks in the Rmd folders
 #'
 #' @param indir The input directory, default "slides"
 #'
 #' @return All the Rmd files with their chunks renamed
-#' @details Recurses 1 level (i.e. subdirs) by default
+#' @details Recurses 1 level (i.e. subdirs) by default. Right now this will break any references made with chunk_reveal!
 #' @export
 #' @examples
 #' \dontrun{
@@ -268,12 +283,16 @@ kjh_name_all_chunks <- function(indir = "slides") {
 }
 
 
-#' Relabel all chunks
+#' Convert all chunks
+#'
+#' Run unname and then rename on all chunks in all files
 #'
 #' @param indir Input directory, default "slides"
 #'
 #' @return All Rmd chunks are unnamed and then renamed
-#' @details Recurses to 1 level of depth (i.e. subdirs)
+#' @details Recurses to 1 level of depth (i.e. subdirs).
+#' Right now this will break any references made with chunk_reveal!
+#'
 #' @export
 #'
 #' @examples
@@ -326,6 +345,8 @@ kjh_register_tenso <- function(){
 }
 
 
+#' Turn on ragg
+#'
 #' Set graphics device to ragg PNG
 #'
 #' @param ... Passed on to `agg_png()`
@@ -345,6 +366,8 @@ ragg_png <- function(..., res = 150) {
 }
 
 #' Set knitr options
+#'
+#' Default knitr opts for chunks.
 #'
 #' @param warning knitr warnings FALSE
 #' @param message knitr messages FALSE
@@ -376,6 +399,8 @@ kjh_set_knitr_opts <- function(warning = FALSE,
 
 
 
+#' Slide theme
+#'
 #' Set up slides theme
 #'
 #' @return Environment vars set and theme set etc
@@ -472,7 +497,9 @@ kjh_set_slide_theme <- function() {
 
 }
 
-#' Set Xaringan Options
+#' Xaringan Extra options
+#'
+#' Turn on various XE Options
 #'
 #' @return Slide setup
 #' @details Sets Tile view, animate css, fade transition, use clipboard.

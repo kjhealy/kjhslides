@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_unname_all_chunks}
 \alias{kjh_unname_all_chunks}
-\title{Unname all Rmd chunks in the Rmd folders}
+\title{Unname all chunks}
 \usage{
 kjh_unname_all_chunks(indir = "slides")
 }
@@ -16,7 +16,7 @@ All the Rmd files with their chunk names removed
 Unname all Rmd chunks in the Rmd folders
 }
 \details{
-Recurses 1 level (i.e. subdirs) by default
+Recurses 1 level (i.e. subdirs) by default. Right now this will break any references made with chunk_reveal!
 }
 \examples{
 \dontrun{

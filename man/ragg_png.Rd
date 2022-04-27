@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{ragg_png}
 \alias{ragg_png}
-\title{Set graphics device to ragg PNG}
+\title{Turn on ragg}
 \usage{
 ragg_png(..., res = 150)
 }

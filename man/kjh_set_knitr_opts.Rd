@@ -27,7 +27,7 @@ kjh_set_knitr_opts(
 Knitr options
 }
 \description{
-Set knitr options
+Default knitr opts for chunks.
 }
 \examples{
 \dontrun{

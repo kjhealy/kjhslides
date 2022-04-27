@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{get_files_of_type}
 \alias{get_files_of_type}
-\title{Get filepaths of given type, possibly reursively}
+\title{Get vector of filepaths}
 \usage{
 get_files_of_type(ftype = "*.Rmd", indir, depth = 1)
 }
@@ -17,7 +17,7 @@ get_files_of_type(ftype = "*.Rmd", indir, depth = 1)
 Vector of file paths
 }
 \description{
-Get filepaths of given type, possibly reursively
+Get filepaths of given type, possibly recursively
 }
 \examples{
 \dontrun{

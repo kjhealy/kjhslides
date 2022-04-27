@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_decktape_all}
 \alias{kjh_decktape_all}
-\title{Render all html slide files in a folder (to depth 1) to pdf with decktape}
+\title{Render everythign inthe \code{slides} folder to \code{pdf_slides}}
 \usage{
 kjh_decktape_all(indir = "slides", outdir = "pdf_slides")
 }

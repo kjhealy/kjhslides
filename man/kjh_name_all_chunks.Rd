@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_name_all_chunks}
 \alias{kjh_name_all_chunks}
-\title{Name all Rmd chunks in the Rmd folders}
+\title{Rename all chunks}
 \usage{
 kjh_name_all_chunks(indir = "slides")
 }
@@ -16,7 +16,7 @@ All the Rmd files with their chunks renamed
 Name all Rmd chunks in the Rmd folders
 }
 \details{
-Recurses 1 level (i.e. subdirs) by default
+Recurses 1 level (i.e. subdirs) by default. Right now this will break any references made with chunk_reveal!
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_render_all_slides}
 \alias{kjh_render_all_slides}
-\title{Knit all files in the slides dir}
+\title{Render all the slides}
 \usage{
 kjh_render_all_slides(indir = "slides")
 }
@@ -13,7 +13,7 @@ kjh_render_all_slides(indir = "slides")
 Side effect; Renders all the Rmd files to html
 }
 \description{
-Knit all files in the slides dir
+Knit all files in the slides dir to HTML
 }
 \examples{
 \dontrun{

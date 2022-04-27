@@ -15,7 +15,7 @@ check_in_out(indir, outdir)
 Stops if they don't
 }
 \description{
-Check if in and out folders exist
+Support function for reading and writing files
 }
 \examples{
 \dontrun{

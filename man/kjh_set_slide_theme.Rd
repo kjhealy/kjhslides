@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_set_slide_theme}
 \alias{kjh_set_slide_theme}
-\title{Set up slides theme}
+\title{Slide theme}
 \usage{
 kjh_set_slide_theme()
 }

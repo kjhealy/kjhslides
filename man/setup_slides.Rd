@@ -24,10 +24,10 @@ The \code{zipfile} is copied to \code{folder} and its contents
 expanded into a directory, the \code{slidefolder}.
 }
 \description{
-Copy slide infrastructure to a given folder
+Copy slide scaffolding to the slides folder
 }
 \details{
-Transfers a zip file containing course materials from the socviz
+Transfers an included zip file containing course materials from the socviz
 library to the Desktop.
 }
 \examples{

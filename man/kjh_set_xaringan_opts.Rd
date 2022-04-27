@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_set_xaringan_opts}
 \alias{kjh_set_xaringan_opts}
-\title{Set Xaringan Options}
+\title{Xaringan Extra options}
 \usage{
 kjh_set_xaringan_opts()
 }
@@ -10,7 +10,7 @@ kjh_set_xaringan_opts()
 Slide setup
 }
 \description{
-Set Xaringan Options
+Turn on various XE Options
 }
 \details{
 Sets Tile view, animate css, fade transition, use clipboard.

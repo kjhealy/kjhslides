@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_decktape_one}
 \alias{kjh_decktape_one}
-\title{Render one slide html file to pdf_slides/file.pdf with decktape}
+\title{Convert an HTML slide deck to PDF}
 \usage{
 kjh_decktape_one(infile, outdir = "pdf_slides")
 }
