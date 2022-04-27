@@ -19,12 +19,13 @@ Imports:
     ggplot2, 
     ggtext, 
     knitr,
-    namer,
     rmarkdown,
     stringr,
     tibble,
     tools,
     xaringan,
-    xaringanExtra
+Remotes:
+    jumpingrivers/namer,
+    gadenbuie/xaringanExtra
 VignetteBuilder: knitr
 URL: https://kjhealy.github.io/kjhslides/
