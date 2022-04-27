@@ -1,7 +1,6 @@
-#' Copy slide scaffolding to the slides folder
+#' Unzip the slides folder
 #'
-#' Transfers an included zip file containing course materials from the socviz
-#'     library to the Desktop.
+#' Copy slide scaffolding in slides.zip to the slides folder
 #'
 #' @title setup_slides
 #' @param folder The destination to copy to within the user's home.
@@ -10,6 +9,7 @@
 #' @param slidefolder The name of the course packet folder to be created
 #' @return The `zipfile` is copied to `folder` and its contents
 #'     expanded into a directory, the `slidefolder`.
+#' @details Transfers an included zip file from the package to `slides`.
 #' @author Kieran Healy
 #' @examples
 #' \dontrun{
