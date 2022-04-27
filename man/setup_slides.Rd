@@ -24,11 +24,12 @@ The \code{zipfile} is copied to \code{folder} and its contents
 expanded into a directory, the \code{slidefolder}.
 }
 \description{
-Copy slide scaffolding to the slides folder
+Unzip the slides folder
 }
 \details{
-Transfers an included zip file containing course materials from the socviz
-library to the Desktop.
+Copy slide scaffolding in slides.zip to the slides folder
+
+Transfers an included zip file from the package to \code{slides}.
 }
 \examples{
 \dontrun{
