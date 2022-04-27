@@ -2,19 +2,13 @@ destination: docs
 authors:
   Kieran Healy:
     href: http://kieranhealy.org
-
-url: https://kjhealy.github.io/kjhslides
-
-
+url: https://kjhealy.github.io/kjhslides/
 template:
   bootstrap: 5
-  package: preferably
-
 navbar:
   right:
-   - icon: fa-github
-     href: https://github.com/kjhealy/kjhslides
-
+  - icon: fa-github
+    href: https://github.com/kjhealy/kjhslides
 figures:
   dev: grDevices::png
   dpi: 200
@@ -24,31 +18,30 @@ figures:
   fig.height: ~
   fig.retina: 2
   fig.asp: 1.618
-
 reference:
-  - title: "Slide setup"
-    desc: Tools to set up your `slides` folder.
-    contents:
-      - kjh_clear_registry
-      - kjh_register_tenso
-      - kjh_set_knitr_opts
-      - kjh_set_slide_theme
-      - kjh_set_xaringan_opts
-      - setup_slides
-  - title: "Slide processing"
-    desc: Tools to make the `slides` and support files.
-    contents:
-      - kjh_name_all_chunks
-      - kjh_unname_all_chunks
-      - kjh_update_all_chunk_names
-      - kjh_render_all_slides
-      - kjh_decktape_one
-      - kjh_decktape_all
-      - kjh_purl_slides
-  - title: "Support and Utility"
-    desc: Background functions.
-    contents:
-      - check_in_out
-      - get_files_of_type
-      - ragg_png
+- title: Slide setup
+  desc: Tools to set up your `slides` folder.
+  contents:
+  - kjh_clear_registry
+  - kjh_register_tenso
+  - kjh_set_knitr_opts
+  - kjh_set_slide_theme
+  - kjh_set_xaringan_opts
+  - setup_slides
+- title: Slide processing
+  desc: Tools to make the `slides` and support files.
+  contents:
+  - kjh_name_all_chunks
+  - kjh_unname_all_chunks
+  - kjh_update_all_chunk_names
+  - kjh_render_all_slides
+  - kjh_decktape_one
+  - kjh_decktape_all
+  - kjh_purl_slides
+- title: Support and Utility
+  desc: Background functions.
+  contents:
+  - check_in_out
+  - get_files_of_type
+  - ragg_png
 

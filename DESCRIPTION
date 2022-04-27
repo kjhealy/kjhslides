@@ -27,3 +27,4 @@ Imports:
     xaringan,
     xaringanExtra
 VignetteBuilder: knitr
+URL: https://kjhealy.github.io/kjhslides/
