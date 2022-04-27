@@ -87,13 +87,49 @@ class: title title-1
 layout: false
 class: center
 
-# .middle[Most Data Analysis is .kjh-orange[Cleaning] and .kjh-red[Recoding]]
+# .huge.middle.squish4[<br />.kjh-orange[DATA ANALYSIS]<br />is mostly<br/>.kjh-red[DATA WRANGLING]]
+
 ---
 
-layout: false
-class: main-title section-title-1
+layout: true
+class: title title-1
 
-# .left[More Wisdom for the Ages]
+---
+
+# More Wisdom for the Ages
+
+## Header 2
+
+### Header 3
+
+#### Header 4
+
+---
+
+# .kjh-green[Colors] and .kjh-pink[`monospace()`]
+
+
+.pull-left[
+
+## .kjh-green[Green]
+
+## .kjh-blue[Blue]
+
+## .kjh-lblue[Light Blue]
+
+]
+
+.pull-right[
+
+## .kjh-pink[Pink]
+
+## .kjh-orange[Orange]
+
+## .kjh-yellow[Yellow]
+
+]
+
+
 ---
 
 layout: true
@@ -141,6 +177,8 @@ as_tibble(cars) %>%
 
 layout: false
 
+## Figure
+
 .center[
 <figure>
   <img src="../img/00-tidyverse-first.png" alt="The tidyverse" title="The tidyverse" width="60%">
@@ -176,7 +214,7 @@ class: title title-1
 
 .pull-left.center[
 <figure>
-  <img src="../img/00-tidyverse-first.png" alt="The tidyverse" title="The tidyverse" width="80%">
+  <img src="../img/00-tidyverse-first.png" alt="The tidyverse" title="The tidyverse" width="90%">
 </figure>
 ]
 
