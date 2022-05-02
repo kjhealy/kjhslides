@@ -19,8 +19,17 @@ figures:
   fig.retina: 2
   fig.asp: 1.618
 reference:
-- title: Slide setup
-  desc: Tools to set up your `slides` folder.
+- title: Slide templating
+  desc: Template, document format, and support files to make things self-contained.
+  contents:
+  - kjh_css_files
+  - kjh_js_files
+  - kjh_lib_dir
+  - kjh_remark_js
+  - kjh_resource_file
+  - kjh_slides_reader
+- title: Slide bundle
+  desc: Set up a `slides` folder. (Deprecated)
   contents:
   - kjh_clear_registry
   - kjh_register_tenso
