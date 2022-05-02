@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_decktape_all}
 \alias{kjh_decktape_all}
-\title{Render everythign inthe \code{slides} folder to \code{pdf_slides}}
+\title{Render every HTML file in the \verb{slides/} folder to PDF and put it in \verb{pdf_slides/}}
 \usage{
 kjh_decktape_all(indir = "slides", outdir = "pdf_slides")
 }

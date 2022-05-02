@@ -104,14 +104,14 @@ get_files_of_type <- function(ftype = "*.Rmd", indir, depth = 1){
       ))
 }
 
-#' Purl all slide .Rmds to .R
+#' Purl all slide .Rmds to .R and put them in the `code/` folder
 #'
 #' Convert all Rmd files in the slide folder to R files in the code folder
 #'
 #' @param indir The source dir, default slides, crawled recursively
 #' @param outdir The output dir, default code
 #'
-#' @return Side effect; code/ folder of purled .R files.
+#' @return Side effect; `code/` folder of purled .R files.
 #' @export
 #'
 #' @examples
@@ -137,7 +137,7 @@ kjh_purl_slides <- function(indir = "slides", outdir = "code") {
 
 #' Render all the slides
 #'
-#' Knit all files in the slides dir to HTML
+#' Render all Rmd files in the `slides/` dir to HTML
 #'
 #' @param indir Input directory (default 'slides')
 #'
@@ -169,7 +169,7 @@ kjh_render_all_slides <- function(indir = "slides") {
 #' Render one slide html file to pdf_slides/file.pdf with decktape
 #'
 #' @param infile Input html file
-#' @param outdir Output directory, defaults to `pdf_slides`
+#' @param outdir Output directory, defaults to `pdf_slides/`
 #'
 #' @return Side-effect; rendered PDF slide file
 #' @export
@@ -196,7 +196,7 @@ kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
 }
 
 
-#' Render everythign inthe `slides` folder to `pdf_slides`
+#' Render every HTML file in the `slides/` folder to PDF and put it in `pdf_slides/`
 #'
 #' Render all html slide files in a folder (to depth 1) to pdf with decktape
 #'

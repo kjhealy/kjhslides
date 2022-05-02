@@ -2,7 +2,7 @@
 % Please edit documentation in R/utility_functions.r
 \name{kjh_purl_slides}
 \alias{kjh_purl_slides}
-\title{Purl all slide .Rmds to .R}
+\title{Purl all slide .Rmds to .R and put them in the \verb{code/} folder}
 \usage{
 kjh_purl_slides(indir = "slides", outdir = "code")
 }
@@ -12,7 +12,7 @@ kjh_purl_slides(indir = "slides", outdir = "code")
 \item{outdir}{The output dir, default code}
 }
 \value{
-Side effect; code/ folder of purled .R files.
+Side effect; \verb{code/} folder of purled .R files.
 }
 \description{
 Convert all Rmd files in the slide folder to R files in the code folder

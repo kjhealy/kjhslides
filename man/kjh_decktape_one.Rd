@@ -9,7 +9,7 @@ kjh_decktape_one(infile, outdir = "pdf_slides")
 \arguments{
 \item{infile}{Input html file}
 
-\item{outdir}{Output directory, defaults to \code{pdf_slides}}
+\item{outdir}{Output directory, defaults to \verb{pdf_slides/}}
 }
 \value{
 Side-effect; rendered PDF slide file

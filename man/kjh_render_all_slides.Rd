@@ -13,7 +13,7 @@ kjh_render_all_slides(indir = "slides")
 Side effect; Renders all the Rmd files to html
 }
 \description{
-Knit all files in the slides dir to HTML
+Render all Rmd files in the \verb{slides/} dir to HTML
 }
 \examples{
 \dontrun{
