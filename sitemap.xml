@@ -28,10 +28,19 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_clear_registry.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_css_files.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_all.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_one.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_js_files.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_lib_dir.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_name_all_chunks.html</loc>
@@ -43,7 +52,13 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_register_tenso.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_remark_js.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_render_all_slides.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_resource_file.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_knitr_opts.html</loc>
@@ -53,6 +68,9 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_xaringan_opts.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_slides_reader.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_unname_all_chunks.html</loc>
