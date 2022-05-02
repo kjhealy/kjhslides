@@ -28,15 +28,13 @@ reference:
   - kjh_remark_js
   - kjh_resource_file
   - kjh_slides_reader
-- title: Slide bundle
-  desc: Set up a `slides` folder. (Deprecated)
+- title: Slide options
+  desc: Setting options that can't go in the document format.
   contents:
-  - kjh_clear_registry
   - kjh_register_tenso
   - kjh_set_knitr_opts
   - kjh_set_slide_theme
   - kjh_set_xaringan_opts
-  - setup_slides
 - title: Slide processing
   desc: Tools to make the `slides` and support files.
   contents:
@@ -52,5 +50,11 @@ reference:
   contents:
   - check_in_out
   - get_files_of_type
+  - kjh_clear_registry
   - ragg_png
+- title: Slide bundle
+  desc: Extract a `slides` folder from a pkg zip file. (Deprecated)
+  contents:
+  - setup_slides
+
 
