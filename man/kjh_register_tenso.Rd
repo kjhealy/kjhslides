@@ -7,7 +7,7 @@
 kjh_register_tenso()
 }
 \value{
-Tenso variant registered in systemfonts databast
+Tenso variant registered in systemfonts database
 }
 \description{
 Register Tenso font variant

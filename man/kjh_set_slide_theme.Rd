@@ -4,7 +4,10 @@
 \alias{kjh_set_slide_theme}
 \title{Slide theme}
 \usage{
-kjh_set_slide_theme()
+kjh_set_slide_theme(tenso = TRUE)
+}
+\arguments{
+\item{tenso}{Use theme_tenso or not?}
 }
 \value{
 Environment vars set and theme set etc
