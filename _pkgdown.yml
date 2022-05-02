@@ -39,6 +39,7 @@ reference:
   desc: Tools to make the `slides` and support files.
   contents:
   - kjh_name_all_chunks
+  - kjh_unname_chunks
   - kjh_unname_all_chunks
   - kjh_update_all_chunk_names
   - kjh_render_all_slides
