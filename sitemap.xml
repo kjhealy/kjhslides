@@ -19,6 +19,9 @@
     <loc>https://kjhealy.github.io/kjhslides/news/index.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/check_chunk_include.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/check_in_out.html</loc>
   </url>
   <url>
@@ -52,6 +55,9 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_purl_slides.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_register_myriad.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_register_tenso.html</loc>
   </url>
   <url>
@@ -67,6 +73,12 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_knitr_opts.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_myriad_theme.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_showtext.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_slide_theme.html</loc>
   </url>
   <url>
@@ -77,6 +89,9 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_unname_all_chunks.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_unname_chunks.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_update_all_chunk_names.html</loc>
