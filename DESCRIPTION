@@ -17,7 +17,6 @@ Imports:
     htmltools,
     knitr,
     magrittr, 
-    myriad,
     namer,
     ragg,
     rmarkdown,
@@ -29,6 +28,7 @@ Imports:
     tools,
     xaringan
 Remotes:
+    kjhealy/myriad,
     jumpingrivers/namer,
     gadenbuie/xaringanExtra
 VignetteBuilder: knitr
