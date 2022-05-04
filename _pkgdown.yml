@@ -52,6 +52,7 @@ reference:
   desc: Background functions.
   contents:
   - check_in_out
+  - check_chunk_include
   - get_files_of_type
   - kjh_clear_registry
   - kjh_register_myriad
