@@ -13,9 +13,9 @@ check_chunk_include(chunk_options = chunk_options)
 Logical vector of chunks that can be safely unnamed
 }
 \description{
-Check to see which chunks do not have include = FALSE
+Check to see which chunks do not have an include = FALSE
 }
 \details{
-We want to make sure chunks invovled in flipbookr remain named,
+We want to make sure chunks involved in flipbookr remain named,
 so we don't re-name them and then break the label that allows flipbooks to be constructed.
 }

@@ -1,12 +1,12 @@
-## Chunk processing
+## Chunk processing: flipbookr
 #' Which chunks are safe to exclude
 #'
-#' Check to see which chunks do not have include = FALSE
+#' Check to see which chunks do not have an include = FALSE
 #'
 #' @param chunk_options Chunk options vector
 #'
 #' @return Logical vector of chunks that can be safely unnamed
-#' @details We want to make sure chunks invovled in flipbookr remain named,
+#' @details We want to make sure chunks involved in flipbookr remain named,
 #' so we don't re-name them and then break the label that allows flipbooks to be constructed.
 #'
 check_chunk_include <- function(chunk_options = chunk_options) {
@@ -14,6 +14,27 @@ check_chunk_include <- function(chunk_options = chunk_options) {
   ## Chunks not safe to unname
   stringr::str_detect(x, "include=FALSE")
 }
+
+
+## Chunk processing: codefig
+#' Check for codefig chunks
+#'
+#' Check to see which chunks do not have codefig in their label
+#'
+#' @param chunk_name Chunk options vector
+#'
+#' @return Logical vector of chunks that can be safely unnamed
+#' @details We want to make sure chunks relying on `fig_chunk()` remain named,
+#' so we don't re-name them and then break the label that allows left-code / right-plot slides to be constructed.
+#' By design every `fig_chunk()` dependent chunk should have `codefig` in its label. (This is managed via snippets.)
+#'
+check_chunk_codefig <- function(chunk_name = chunk_name) {
+  x <- stringr::str_remove_all(chunk_name, " ")
+  ## Chunks not safe to unname
+  stringr::str_detect(x, "codefig")
+}
+
+
 
 #' Unname all unnameable chunks
 #'
@@ -35,11 +56,14 @@ kjh_unname_chunks <- function (path, chunk_name_prefix = NULL) {
   chunk_options <- chunk_headers_info$options
   check_include <- check_chunk_include(chunk_options)
 
+  chunk_names <- chunk_headers_info$name
+  check_codefig <- check_chunk_codefig(chunk_names)
+
   if (is.null(chunk_headers_info)) {
     return(invisible("TRUE"))
   }
   if (is.null(chunk_name_prefix)) {
-    ind <- !((chunk_headers_info$name %in% "setup") | check_include)
+    ind <- !((chunk_headers_info$name %in% "setup") | check_include | check_codefig)
     chunk_headers_info$name[ind] <- ""
   }
   else {

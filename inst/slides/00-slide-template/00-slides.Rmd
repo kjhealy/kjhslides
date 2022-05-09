@@ -157,6 +157,38 @@ as_tibble(cars) %>%
 
 ---
 
+# Code-left / Fig Right method
+
+.pull-left.w35[
+
+Make sure the chunk has the string "codefig" in its label to protect against breaking refs.
+
+```{r codefig-first-plot, message=FALSE, fig.show="hide", fig.width=5.8, fig.height=5.5}
+library(tidyverse)
+library(gapminder)
+
+p <- ggplot(data = gapminder, 
+            mapping = aes(x = gdpPercap, 
+                          y = lifeExp)) + 
+  geom_point()
+
+p
+```
+
+]
+
+--
+
+.pull-right.w60[
+```{r, echo=FALSE}
+knitr::include_graphics(
+  knitr::fig_chunk("codefig-first-plot", "png")
+)
+```
+]
+
+---
+
 layout: false
 
 ## Figure

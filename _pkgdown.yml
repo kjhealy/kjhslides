@@ -51,8 +51,9 @@ reference:
 - title: Support and Utility
   desc: Background functions.
   contents:
-  - check_in_out
+  - check_chunk_codefig
   - check_chunk_include
+  - check_in_out
   - get_files_of_type
   - kjh_clear_registry
   - kjh_register_myriad
