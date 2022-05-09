@@ -90,7 +90,7 @@ kjh_set_slide_theme <- function(tenso = TRUE) {
                       plot.caption = ggtext::element_markdown(hjust = 0,
                                                               size = ggplot2::rel(0.8),
                                                               face = "plain"),
-                      plot.margin = unit(c(5.5,12,5.5,5.5), "pt"),
+                      plot.margin = grid::unit(c(5.5,12,5.5,5.5), "pt"),
                       strip.background = ggplot2::element_rect()
        )
     )
