@@ -4,12 +4,12 @@
 \alias{ragg_png}
 \title{Turn on ragg}
 \usage{
-ragg_png(..., res = 150)
+ragg_png(..., res = 300)
 }
 \arguments{
 \item{...}{Passed on to \code{agg_png()}}
 
-\item{res}{PNG resolution, defaults to 150}
+\item{res}{PNG resolution, defaults to 300}
 }
 \value{
 Sets the device

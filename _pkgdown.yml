@@ -33,12 +33,15 @@ reference:
   contents:
   - kjh_register_tenso
   - kjh_set_knitr_opts
+  - kjh_set_myriad_theme
+  - kjh_set_showtext
   - kjh_set_slide_theme
   - kjh_set_xaringan_opts
 - title: Slide processing
   desc: Tools to make the `slides` and support files.
   contents:
   - kjh_name_all_chunks
+  - kjh_unname_chunks
   - kjh_unname_all_chunks
   - kjh_update_all_chunk_names
   - kjh_render_all_slides
@@ -49,8 +52,10 @@ reference:
   desc: Background functions.
   contents:
   - check_in_out
+  - check_chunk_include
   - get_files_of_type
   - kjh_clear_registry
+  - kjh_register_myriad
   - ragg_png
 - title: Slide bundle
   desc: Extract a `slides` folder from a pkg zip file. (Deprecated)

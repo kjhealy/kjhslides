@@ -146,12 +146,41 @@ kjh_register_tenso <- function(){
 }
 
 
+
+#' Register Myriad font variant
+#'
+#' @return Myriad variant registered in systemfonts database
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+kjh_register_myriad <- function(){
+
+  kjh_clear_registry()
+
+  systemfonts::register_variant(
+    register_variant(
+      name = "Myriad Pro SemiCondensed",
+      family = "Myriad Pro",
+      width = "semicondensed",
+      weight = c("normal", "semibold"),
+    )
+
+  )
+}
+
+
+
 #' Turn on ragg
 #'
 #' Set graphics device to ragg PNG
 #'
 #' @param ... Passed on to `agg_png()`
-#' @param res PNG resolution, defaults to 150
+#' @param res PNG resolution, defaults to 300
 #'
 #' @return Sets the device
 #' @export
@@ -162,7 +191,7 @@ kjh_register_tenso <- function(){
 #'  #EXAMPLE1
 #'  }
 #' }
-ragg_png <- function(..., res = 150) {
+ragg_png <- function(..., res = 300) {
   ragg::agg_png(..., res = res, units = "in")
 }
 
@@ -225,4 +254,14 @@ kjh_set_xaringan_opts <- function() {
     xaringanExtra::use_clipboard())
   }
 
-
+#' Turn on showtext
+#'
+#' @param dpi DPI for output (300 default is recommended)
+#'
+#' @return Turns on showtext
+#' @export
+#'
+kjh_set_showtext <- function(dpi = 300) {
+  showtext::showtext_opts(dpi = 300)
+  showtext::showtext_auto()
+}

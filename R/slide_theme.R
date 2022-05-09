@@ -98,7 +98,23 @@ kjh_set_slide_theme <- function(tenso = TRUE) {
 
   ifelse(tenso == TRUE,
          ggplot2::theme_set(theme_tenso()),
-         ggplkot2::theme_set(ggplot2::theme_gray())
+         ggplot2::theme_set(ggplot2::theme_gray())
   )
 
 }
+
+
+#' Turn on Myriad
+#'
+#' @return Sets the slide theme to myriad semicondensed theme
+#' @export
+#'
+kjh_set_myriad_theme <- function() {
+  kjh_register_myriad()
+  kjh_set_showtext()
+
+  myriad::import_myriad_semi()
+  ggplot2::theme_set(myriad::theme_myriad_semi())
+}
+
+

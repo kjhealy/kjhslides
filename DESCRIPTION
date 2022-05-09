@@ -22,12 +22,14 @@ Imports:
     ragg,
     rmarkdown,
     purrr, 
+    showtext,
     stringr,
     systemfonts, 
     tibble,
     tools,
     xaringan
 Remotes:
+    kjhealy/myriad,
     jumpingrivers/namer,
     gadenbuie/xaringanExtra
 VignetteBuilder: knitr
