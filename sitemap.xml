@@ -31,6 +31,9 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/get_files_of_type.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/get_ggplot_colors.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/index.html</loc>
   </url>
   <url>
@@ -71,6 +74,9 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_resource_file.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_classic_theme.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_knitr_opts.html</loc>
