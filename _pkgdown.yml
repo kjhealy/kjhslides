@@ -34,6 +34,7 @@ reference:
   - kjh_register_tenso
   - kjh_set_knitr_opts
   - kjh_set_myriad_theme
+  - kjh_set_classic_theme
   - kjh_set_showtext
   - kjh_set_slide_theme
   - kjh_set_xaringan_opts
@@ -55,6 +56,7 @@ reference:
   - check_chunk_include
   - check_in_out
   - get_files_of_type
+  - get_ggplot_colors
   - kjh_clear_registry
   - kjh_register_myriad
   - ragg_png

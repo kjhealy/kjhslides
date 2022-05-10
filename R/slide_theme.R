@@ -103,6 +103,34 @@ kjh_set_slide_theme <- function(tenso = TRUE) {
 
 }
 
+#' Generate ggplot default colors
+#'
+#' @param n Number of colors
+#' @param h Hue
+#'
+#' @return n colors every 15 degrees around the color wheel
+#' @export
+#'
+get_ggplot_colors <- function(n = 6, h = c(0, 360) + 15){
+  hcl(h = (seq(h[1], h[2], length = n)), c = 100, l = 65)
+}
+
+
+#' Set to classic theme
+#'
+#' @param n N colors for color theme
+#'
+#' @return Sets the theme to the ggplot theme_classic
+#' @export
+#'
+kjh_set_classic_theme <- function(n = 6){
+  ## NB UK spelling of colour here
+  options(ggplot2.discrete.colour = get_ggplot_colors(n = n),
+          ggplot2.discrete.fill = get_ggplot_colors(n = n))
+
+  ggplot2::theme_set(ggplot2::theme_classic())
+}
+
 
 #' Turn on Myriad
 #'

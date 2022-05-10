@@ -1,10 +1,14 @@
+# kjhslides 0.0.5.9000
+
+* Add function to turn on classic theme
+
 # kjhslides 0.0.4.9000
 
-Protect code-left/fig-right style chunks when unnaming/renaming, as long as they contain the string "`codefig`" in their label. 
+* Protect code-left/fig-right style chunks when unnaming/renaming, as long as they contain the string "`codefig`" in their label. 
 
 # kjhslides 0.0.3.9000
 
-Some helper functions for a Myriad theme.
+* Some helper functions for a Myriad theme.
 
 # kjhslides 0.0.2.9000
 
