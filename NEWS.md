@@ -1,3 +1,7 @@
+# kjhslides 0.0.6.9000
+
+* Improve the ggplot theme's legibility. 
+
 # kjhslides 0.0.5.9000
 
 * Add function to turn on classic theme
