@@ -59,7 +59,9 @@ reference:
   - get_ggplot_colors
   - kjh_clear_registry
   - kjh_register_myriad
+  - kjh_slide_colors
   - ragg_png
+  - theme_tenso
 - title: Slide bundle
   desc: Extract a `slides` folder from a pkg zip file. (Deprecated)
   contents:

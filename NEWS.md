@@ -1,6 +1,7 @@
 # kjhslides 0.0.5.9000
 
 * Add function to turn on classic theme
+* Additional cleanup of theme-setting functions
 
 # kjhslides 0.0.4.9000
 

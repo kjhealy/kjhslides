@@ -4,10 +4,7 @@
 \alias{kjh_set_slide_theme}
 \title{Slide theme}
 \usage{
-kjh_set_slide_theme(tenso = TRUE)
-}
-\arguments{
-\item{tenso}{Use theme_tenso or not?}
+kjh_set_slide_theme()
 }
 \value{
 Environment vars set and theme set etc
@@ -17,11 +14,4 @@ Set up slides theme
 }
 \details{
 Sets up the slide theme with Tenso font, Okabe-Ito colors, and element_markdown()
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
 }
