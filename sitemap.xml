@@ -94,6 +94,9 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_set_xaringan_opts.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_slide_colors.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_slides_reader.html</loc>
   </url>
   <url>
@@ -110,5 +113,8 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/setup_slides.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/theme_tenso.html</loc>
   </url>
 </urlset>
