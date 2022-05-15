@@ -1,3 +1,7 @@
+# kjhslides 0.0.7.9000
+
+* Adjust classic theme setter
+
 # kjhslides 0.0.6.9000
 
 * Improve the ggplot theme's legibility. 

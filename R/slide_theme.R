@@ -111,10 +111,13 @@ get_ggplot_colors <- function(n = 6, h = c(0, 360) + 15){
 #' @return Sets the theme to the ggplot theme_classic
 #' @export
 #'
-kjh_set_classic_theme <- function(n = 6){
+kjh_set_classic_theme <- function(n = 5){
   ## NB UK spelling of colour here
-  options(ggplot2.discrete.colour = get_ggplot_colors(n = n),
-          ggplot2.discrete.fill = get_ggplot_colors(n = n))
+  # options(ggplot2.discrete.colour = get_ggplot_colors(n = n),
+  #        ggplot2.discrete.fill = get_ggplot_colors(n = n))
+
+  options(ggplot2.discrete.colour = scales::hue_pal()(n),
+          ggplot2.discrete.fill = scales::hue_pal()(n))
 
   ggplot2::theme_set(ggplot2::theme_classic())
 }
