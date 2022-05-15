@@ -1,3 +1,7 @@
+# kjhslides 0.0.8.9000
+
+* Back out `element_markdown` for now
+
 # kjhslides 0.0.7.9000
 
 * Adjust classic theme setter
