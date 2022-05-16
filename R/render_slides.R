@@ -54,7 +54,7 @@ kjh_render_one_slide <- function(infile, quietly = TRUE) {
   message("My outfilename is ", outfilename)
 
   rmarkdown::render(input = infilename,
-                    output_file = outfilname,
+                    output_file = outfilename,
                     quiet = quietly)
 
   }
