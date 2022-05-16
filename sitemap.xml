@@ -43,10 +43,10 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_css_files.html</loc>
   </url>
   <url>
-    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_all.html</loc>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_all_slides.html</loc>
   </url>
   <url>
-    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_one.html</loc>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_decktape_one_slide.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_js_files.html</loc>
@@ -71,6 +71,9 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_render_all_slides.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_render_one_slide.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_resource_file.html</loc>
