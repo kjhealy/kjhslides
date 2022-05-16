@@ -1,3 +1,7 @@
+# kjhslides 0.0.9.9000
+
+* Fixed many, many file i/o bugs
+
 # kjhslides 0.0.8.9000
 
 * Back out `element_markdown` for now

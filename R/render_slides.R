@@ -29,6 +29,36 @@ kjh_purl_slides <- function(indir = "slides", outdir = "code") {
   purrr:::walk2(fnames$inpath, fnames$outpath, knitr::purl)
 }
 
+#' Render one slide deck from Rmd to HTML
+#'
+#' @param infile Relative or absolute path to Rmd input file
+#' @param quietly Run rmarkdown::render() quietly
+#'
+#' @return Rendered HTML file
+#' @export
+#'
+kjh_render_one_slide <- function(infile, quietly = TRUE) {
+
+  infilename <- fs::path_real(infile)
+  #message("My infilename is ", infilename)
+
+  if(!fs::file_exists(infilename)) {
+    stop("The input file does not exist.")
+  }
+
+  if(!fs::path_ext(infilename) == "Rmd") {
+    stop("The input file must be an Rmd file.")
+  }
+
+  outfilename <- fs::path_ext_set(infilename, "html")
+  #message("My outfilename is ", outfilename)
+
+  #rmarkdown::render(input = infilename,
+  #                  output_file = outfilname,
+  #                  quiet = quietly)
+
+  }
+
 
 
 #' Render all the slides
@@ -53,10 +83,10 @@ kjh_render_all_slides <- function(indir = "slides") {
   }
 
   fnames <- get_files_of_type(ftype = "*.Rmd",
-                              indir = here::here(indir)) %>%
-    .[.!="00-slides.Rmd"]
+                              indir = fs::path_real((indir))) |>
+    pull(inpath)
 
-  purrr:::walk(fnames, rmarkdown::render)
+  purrr:::walk(fnames, kjh_render_one_slide)
 }
 
 
@@ -76,19 +106,30 @@ kjh_render_all_slides <- function(indir = "slides") {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
+kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 
-  if(!fs::file_exists(infile)) {
+  infilepath <- fs::path_real(infile)
+  message("My infilepath is ", infilepath)
+  outdirpath <- fs::path_real(outdir)
+
+  if(!fs::file_exists(infilepath)) {
     stop("The input file does not exist.")
   }
 
-  if(!fs::dir_exists(here::here(outdir))) {
-    stop(paste("The output directory does not exist at", here::here()))
+  if(!fs::path_ext(infilepath) == "html") {
+    stop("The input file must be an HTML file.")
   }
 
-  outfile <- here::here(outdir, paste0(tools::file_path_sans_ext(basename(infile)), ".pdf"))
 
-  xaringan::decktape(infile, outfile, docker = FALSE)
+  outfilename <- fs::path_ext_set(fs::path_file(infilepath), "pdf")
+  message("My outfilename is ", outfilename)
+  outfilepath <-  fs::path(outdirpath, outfilename)
+  message("My outfile path is ", outfilepath)
+
+
+  xaringan::decktape(file = infilepath,
+                     output = outfilepath,
+                     docker = FALSE)
 }
 
 
@@ -109,10 +150,11 @@ kjh_decktape_one <- function(infile, outdir = "pdf_slides") {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_all <- function(indir = "slides", outdir = "pdf_slides") {
+kjh_decktape_all_slides <- function(indir = "slides", outdir = "pdf_slides") {
 
   fnames <- get_files_of_type(ftype = "*.html",
-                              indir = here::here(indir))
+                              indir = indir) |>
+    pull(inpath)
 
-  purrr:::walk(fnames, kjh_decktape_one)
+  purrr:::walk(fnames, kjh_decktape_one_slide)
 }

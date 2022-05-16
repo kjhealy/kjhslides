@@ -45,9 +45,10 @@ reference:
   - kjh_unname_chunks
   - kjh_unname_all_chunks
   - kjh_update_all_chunk_names
+  - kjh_render_one_slide
   - kjh_render_all_slides
-  - kjh_decktape_one
-  - kjh_decktape_all
+  - kjh_decktape_one_slide
+  - kjh_decktape_all_slides
   - kjh_purl_slides
 - title: Support and Utility
   desc: Background functions.

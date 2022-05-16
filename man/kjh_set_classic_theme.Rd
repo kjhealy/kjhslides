@@ -4,7 +4,7 @@
 \alias{kjh_set_classic_theme}
 \title{Set to classic theme}
 \usage{
-kjh_set_classic_theme(n = 6)
+kjh_set_classic_theme(n = 5)
 }
 \arguments{
 \item{n}{N colors for color theme}

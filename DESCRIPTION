@@ -1,6 +1,6 @@
 Package: kjhslides
 Title: Convenience Package For Teaching Slides
-Version: 0.0.8.9000
+Version: 0.0.9.9000
 Authors@R: 
     person("Kieran", "Healy", , "kjhealy@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-9114-981X"))
