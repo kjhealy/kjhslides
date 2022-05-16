@@ -62,6 +62,8 @@ reference:
   - kjh_clear_registry
   - kjh_register_myriad
   - kjh_slide_colors
+  - kjh_theme_map
+  - kjh_theme_nymap
   - ragg_png
   - theme_tenso
 - title: Slide bundle

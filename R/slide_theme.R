@@ -137,3 +137,57 @@ kjh_set_myriad_theme <- function() {
 }
 
 
+#' Provide theme map
+#'
+#' @return them_map
+#' @export
+#'
+#' @details Working around flippbookr's issues with finding things
+kjh_theme_map <- function() {
+  theme_map <- function(base_size=9, base_family="") {
+    require(grid)
+    ggplot2::theme_bw(base_size=base_size, base_family=base_family) %+replace%
+      ggplot2::theme(axis.line=element_blank(),
+            axis.text=element_blank(),
+            axis.ticks=element_blank(),
+            axis.title=element_blank(),
+            panel.background=element_blank(),
+            panel.border=element_blank(),
+            panel.grid=element_blank(),
+            panel.spacing=unit(0, "lines"),
+            plot.background=element_blank(),
+            legend.justification = c(0,0),
+            legend.position = c(0,0)
+      )
+  }
+  theme_map()
+}
+
+
+#' NYC Map theme
+#'
+#' @return NYC map theme
+#' @export
+#'
+#' @details Work around flipbookr's trouble finding things
+kjh_theme_nymap <- function() {
+  theme_nymap <- function(base_size=9, base_family="") {
+    require(grid)
+    ggplot2::theme_bw(base_size=base_size, base_family=base_family) %+replace%
+      ggplot2::theme(axis.line=element_blank(),
+            axis.text=element_blank(),
+            axis.ticks=element_blank(),
+            axis.title=element_blank(),
+            panel.background=element_blank(),
+            panel.border=element_blank(),
+            panel.grid=element_blank(),
+            panel.spacing=unit(0, "lines"),
+            plot.background=element_blank(),
+            legend.justification = c(0,0),
+            legend.position = c(0.05, 0.58),
+            legend.direction = "horizontal"
+      )
+  }
+  theme_nymap()
+}
+

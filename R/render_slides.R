@@ -12,7 +12,6 @@
 kjh_purl_one_slide <- function(infile, outdir = "code") {
 
   infilepath <- fs::path_real(infile)
-  message("My infilepath is ", infilepath)
   outdirpath <- fs::path_real(outdir)
 
   if(!fs::file_exists(infilepath)) {
@@ -141,7 +140,6 @@ kjh_render_all_slides <- function(indir = "slides") {
 kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 
   infilepath <- fs::path_real(infile)
-  message("My infilepath is ", infilepath)
   outdirpath <- fs::path_real(outdir)
 
   if(!fs::file_exists(infilepath)) {
@@ -154,7 +152,6 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 
 
   outfilename <- fs::path_ext_set(fs::path_file(infilepath), "pdf")
-  message("My outfilename is ", outfilename)
   outfilepath <-  fs::path(outdirpath, outfilename)
   message("My outfile path is ", outfilepath)
 
