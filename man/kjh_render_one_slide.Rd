@@ -4,7 +4,7 @@
 \alias{kjh_render_one_slide}
 \title{Render one slide deck from Rmd to HTML}
 \usage{
-kjh_render_one_slide(infile, quietly = TRUE)
+kjh_render_one_slide(infile, quietly = TRUE, warnings = FALSE)
 }
 \arguments{
 \item{infile}{Relative or absolute path to Rmd input file}

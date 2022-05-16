@@ -1,5 +1,39 @@
 ## Rendering slides: html -> pdf, purling, etc
 
+
+#' Purl one Rmd file
+#'
+#' @param infile Absolute or relative Rmd file name
+#' @param outdir Output directory, default 'code'
+#'
+#' @return
+#' @export
+#'
+kjh_purl_one_slide <- function(infile, outdir = "code") {
+
+  infilepath <- fs::path_real(infile)
+  message("My infilepath is ", infilepath)
+  outdirpath <- fs::path_real(outdir)
+
+  if(!fs::file_exists(infilepath)) {
+    stop("The input file does not exist.")
+  }
+
+  if(!fs::path_ext(infilepath) == "Rmd") {
+    stop("The input file must be an Rmd file.")
+  }
+
+
+  outfilename <- fs::path_ext_set(fs::path_file(infilepath), "R")
+  outfilepath <-  fs::path(outdirpath, outfilename)
+
+  knitr::purl(input = infilepath,
+              output = outfilepath,
+              quiet = TRUE)
+
+  }
+
+
 #' Purl all slide .Rmds to .R and put them in the `code/` folder
 #'
 #' Convert all Rmd files in the slide folder to R files in the code folder
@@ -16,17 +50,12 @@
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_purl_slides <- function(indir = "slides", outdir = "code") {
+kjh_purl_all_slides <- function(indir = "slides", outdir = "code") {
 
-  check_in_out(indir = indir, outdir = outdir)
+    fnames <- get_files_of_type(ftype = "*.Rmd",
+                                indir = indir) |> dplyr::pull(inpath)
 
-  fnames <- get_files_of_type(ftype = "*.Rmd",
-                              indir = here::here(indir)) %>%
-    dplyr::mutate(outname = paste0(tools::file_path_sans_ext(basename(inpath)), ".R"),
-                  outpath = here::here(outdir, outname)) %>%
-    dplyr::filter(outname != "00-slides.R")
-
-  purrr:::walk2(fnames$inpath, fnames$outpath, knitr::purl)
+    purrr:::walk(fnames, kjh_purl_one_slide)
 }
 
 #' Render one slide deck from Rmd to HTML
@@ -37,7 +66,7 @@ kjh_purl_slides <- function(indir = "slides", outdir = "code") {
 #' @return Rendered HTML file
 #' @export
 #'
-kjh_render_one_slide <- function(infile, quietly = TRUE) {
+kjh_render_one_slide <- function(infile, quietly = TRUE, warnings = FALSE) {
 
   infilename <- fs::path_real(infile)
   #message("My infilename is ", infilename)
@@ -51,11 +80,14 @@ kjh_render_one_slide <- function(infile, quietly = TRUE) {
   }
 
   outfilename <- fs::path_ext_set(infilename, "html")
-  message("My outfilename is ", outfilename)
+  message("Making ", basename(outfilename))
 
-  rmarkdown::render(input = infilename,
+
+  suppressMessages(
+    rmarkdown::render(input = infilename,
                     output_file = outfilename,
                     quiet = quietly)
+  )
 
   }
 
@@ -150,7 +182,7 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_all_slides <- function(indir = "./slides", outdir = "pdf_slides") {
+kjh_decktape_all_slides <- function(indir = "slides", outdir = "pdf_slides") {
 
   fnames <- get_files_of_type(ftype = "*.html",
                               indir = indir) |> dplyr::pull(inpath)

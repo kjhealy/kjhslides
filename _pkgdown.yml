@@ -49,7 +49,8 @@ reference:
   - kjh_render_all_slides
   - kjh_decktape_one_slide
   - kjh_decktape_all_slides
-  - kjh_purl_slides
+  - kjh_purl_one_slide
+  - kjh_purl_all_slides
 - title: Support and Utility
   desc: Background functions.
   contents:
