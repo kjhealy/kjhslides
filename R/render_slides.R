@@ -51,11 +51,11 @@ kjh_render_one_slide <- function(infile, quietly = TRUE) {
   }
 
   outfilename <- fs::path_ext_set(infilename, "html")
-  #message("My outfilename is ", outfilename)
+  message("My outfilename is ", outfilename)
 
-  #rmarkdown::render(input = infilename,
-  #                  output_file = outfilname,
-  #                  quiet = quietly)
+  rmarkdown::render(input = infilename,
+                    output_file = outfilname,
+                    quiet = quietly)
 
   }
 
@@ -84,7 +84,7 @@ kjh_render_all_slides <- function(indir = "slides") {
 
   fnames <- get_files_of_type(ftype = "*.Rmd",
                               indir = fs::path_real((indir))) |>
-    pull(inpath)
+    dplyr::pull(inpath)
 
   purrr:::walk(fnames, kjh_render_one_slide)
 }
@@ -150,11 +150,12 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_all_slides <- function(indir = "slides", outdir = "pdf_slides") {
+kjh_decktape_all_slides <- function(indir = "./slides", outdir = "pdf_slides") {
 
   fnames <- get_files_of_type(ftype = "*.html",
-                              indir = indir) |>
-    pull(inpath)
+                              indir = indir) |> dplyr::pull(inpath)
+
+  print(fnames)
 
   purrr:::walk(fnames, kjh_decktape_one_slide)
 }
