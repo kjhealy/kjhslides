@@ -28,6 +28,7 @@ reference:
   - kjh_remark_js
   - kjh_resource_file
   - kjh_slides_reader
+  - kjh_local_slides_reader
 - title: Slide options
   desc: Setting options that can't go in the document format.
   contents:
