@@ -55,7 +55,16 @@
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_lib_dir.html</loc>
   </url>
   <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_local_slides_reader.html</loc>
+  </url>
+  <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_name_all_chunks.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_purl_all_slides.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_purl_one_slide.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_register_myriad.html</loc>
@@ -98,6 +107,12 @@
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_slides_reader.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_theme_map.html</loc>
+  </url>
+  <url>
+    <loc>https://kjhealy.github.io/kjhslides/reference/kjh_theme_nymap.html</loc>
   </url>
   <url>
     <loc>https://kjhealy.github.io/kjhslides/reference/kjh_unname_all_chunks.html</loc>
