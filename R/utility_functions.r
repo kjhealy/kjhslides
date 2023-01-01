@@ -12,7 +12,8 @@
 #' @details Transfers an included zip file from the package to `slides`.
 #' Since we now make the CSS, JS, and other components available via a md document format that wraps
 #' Xaringan's `moon_reader`, and also provide a template that will create a directory etc,
-#' we don't need this way of doing things anymore.
+#' we don't need this way of doing things anymore when using the package locally. But it is still useful when
+#' e.g. putting slides in a Quarto website and the libs folder needs to be provided.
 #' @author Kieran Healy
 #' @examples
 #' \dontrun{
@@ -54,6 +55,8 @@ setup_slides <- function(folder, zipfile = "slides.zip",
   message(paste("Copied", file_name, "to", dest_path, "and expanded it into", dest_dir_name))
 
 }
+
+
 
 #' Check if in and out folders exist
 #'

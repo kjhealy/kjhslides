@@ -6,7 +6,7 @@
 #' @param infile Absolute or relative Rmd file name
 #' @param outdir Output directory, default 'code'
 #'
-#' @return
+#' @return purled file
 #' @export
 #'
 kjh_purl_one_slide <- function(infile, outdir = "code") {

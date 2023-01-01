@@ -22,7 +22,6 @@ kjh_resource_file <- function(file,
 }
 
 
-
 #' Construct vector of CSS file paths
 #'
 #' @param file Vector of custom CSS files
@@ -74,4 +73,8 @@ kjh_lib_dir <- function(libdir = "slides/libs") {
 kjh_remark_js <- function(remark = "libs/remark-latest.min.js") {
   kjh_resource_file(remark)
 }
+
+
+
+
 
