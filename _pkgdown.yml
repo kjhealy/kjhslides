@@ -68,7 +68,7 @@ reference:
   - ragg_png
   - theme_tenso
 - title: Slide bundle
-  desc: Extract a `slides` folder from a pkg zip file. (Deprecated)
+  desc: Extract a `slides` folder from a pkg zip file.
   contents:
   - setup_slides
 

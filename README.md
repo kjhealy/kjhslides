@@ -11,9 +11,4 @@
 This package provides some quick scaffolding for my course packets. It’s
 not meant to work properly for anyone besides me.
 
-``` r
-# install.packages("devtools")
-devtools::install_github("kjhealy/kjhslides")
-```
-
 <img src="man/figures/template-slides.png">
