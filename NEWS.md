@@ -1,3 +1,8 @@
+# kjhslides 0.0.12.9000
+
+* Had to revert a change
+
+
 # kjhslides 0.0.10.9000
 
 * Added kjh_local_slides_reader() doc format for use with xaringan slides inside a quarto site.
