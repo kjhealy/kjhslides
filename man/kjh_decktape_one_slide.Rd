@@ -4,14 +4,12 @@
 \alias{kjh_decktape_one_slide}
 \title{Convert an HTML slide deck to PDF}
 \usage{
-kjh_decktape_one_slide(infile, outdir = "pdf_slides", timeout = 30000)
+kjh_decktape_one_slide(infile, outdir = "pdf_slides")
 }
 \arguments{
 \item{infile}{Input html file}
 
 \item{outdir}{Output directory, defaults to \verb{pdf_slides/}}
-
-\item{timeout}{Page load timeout passed to \code{decktape}}
 }
 \value{
 Side-effect; rendered PDF slide file

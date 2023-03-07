@@ -1,7 +1,3 @@
-# kjhslides 0.0.11.9000
-
-* Add a `timeout` argument to `kjh_decktape_all_slides()` and `kjh_decktape_one_slide()`
-
 # kjhslides 0.0.10.9000
 
 * Added kjh_local_slides_reader() doc format for use with xaringan slides inside a quarto site.

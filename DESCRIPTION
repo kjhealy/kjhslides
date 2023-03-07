@@ -1,6 +1,6 @@
 Package: kjhslides
 Title: Convenience Package For Teaching Slides
-Version: 0.0.11.9000
+Version: 0.0.10.9000
 Authors@R: 
     person("Kieran", "Healy", , "kjhealy@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-9114-981X"))
@@ -8,7 +8,7 @@ Description: Slide templating and setup.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.2.1
 Imports:
     dplyr,
     fs, 

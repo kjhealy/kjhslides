@@ -127,7 +127,6 @@ kjh_render_all_slides <- function(indir = "slides") {
 #'
 #' @param infile Input html file
 #' @param outdir Output directory, defaults to `pdf_slides/`
-#' @param timeout Page load timeout passed to `decktape`
 #'
 #' @return Side-effect; rendered PDF slide file
 #' @export
@@ -138,7 +137,7 @@ kjh_render_all_slides <- function(indir = "slides") {
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides", timeout = 30000) {
+kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 
   infilepath <- fs::path_real(infile)
   outdirpath <- fs::path_real(outdir)
@@ -159,9 +158,6 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides", timeout = 3000
 
   xaringan::decktape(file = infilepath,
                      output = outfilepath,
-                     args = paste0("--page-load-timeout=",
-                                   timeout,
-                                   " --chrome-arg=--allow-file-access-from-files"),
                      docker = FALSE)
 }
 
@@ -172,7 +168,6 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides", timeout = 3000
 #'
 #' @param indir Input dir, defaults to 'slides'
 #' @param outdir Output dir, defaults to 'pdf_slides'
-#' @param timeout Page load timeout passed to `decktape`
 #'
 #' @return Side effect; renders all the html to pdf
 #' @details By default will recurse to 1 level of subdirs
@@ -184,12 +179,12 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides", timeout = 3000
 #'  #EXAMPLE1
 #'  }
 #' }
-kjh_decktape_all_slides <- function(indir = "slides", outdir = "pdf_slides", timeout = 30000) {
+kjh_decktape_all_slides <- function(indir = "slides", outdir = "pdf_slides") {
 
   fnames <- get_files_of_type(ftype = "*.html",
                               indir = indir) |> dplyr::pull(inpath)
 
   print(fnames)
 
-  purrr:::walk(fnames, kjh_decktape_one_slide, timeout = timeout)
+  purrr:::walk(fnames, kjh_decktape_one_slide)
 }

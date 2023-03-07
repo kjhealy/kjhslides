@@ -4,18 +4,12 @@
 \alias{kjh_decktape_all_slides}
 \title{Render every HTML file in the \verb{slides/} folder to PDF and put it in \verb{pdf_slides/}}
 \usage{
-kjh_decktape_all_slides(
-  indir = "slides",
-  outdir = "pdf_slides",
-  timeout = 30000
-)
+kjh_decktape_all_slides(indir = "slides", outdir = "pdf_slides")
 }
 \arguments{
 \item{indir}{Input dir, defaults to 'slides'}
 
 \item{outdir}{Output dir, defaults to 'pdf_slides'}
-
-\item{timeout}{Page load timeout passed to \code{decktape}}
 }
 \value{
 Side effect; renders all the html to pdf
