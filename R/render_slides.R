@@ -18,8 +18,8 @@ kjh_purl_one_slide <- function(infile, outdir = "code") {
     stop("The input file does not exist.")
   }
 
-  if(!fs::path_ext(infilepath) == "Rmd") {
-    stop("The input file must be an Rmd file.")
+  if(!fs::path_ext(infilepath) %in% c("Rmd", "qmd")) {
+    stop("The input file must be an Rmd or qmd file.")
   }
 
 
@@ -51,8 +51,7 @@ kjh_purl_one_slide <- function(infile, outdir = "code") {
 #' }
 kjh_purl_all_slides <- function(indir = "slides", outdir = "code") {
 
-    fnames <- get_files_of_type(ftype = "*.Rmd",
-                                indir = indir) |> dplyr::pull(inpath)
+    fnames <- get_rmd_qmd(indir = indir) |> dplyr::pull(inpath)
 
     purrr:::walk(fnames, kjh_purl_one_slide)
 }
@@ -158,6 +157,7 @@ kjh_decktape_one_slide <- function(infile, outdir = "pdf_slides") {
 
   xaringan::decktape(file = infilepath,
                      output = outfilepath,
+                #     args = "--size='2048x1536'",
                      docker = FALSE)
 }
 

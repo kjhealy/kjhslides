@@ -1,3 +1,8 @@
+# kjhslides 0.0.13.9000
+
+* Support qmd as well as Rmd
+
+
 # kjhslides 0.0.12.9000
 
 * Had to revert a change

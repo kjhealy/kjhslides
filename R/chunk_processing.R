@@ -40,7 +40,7 @@ check_chunk_codefig <- function(chunk_name = chunk_name) {
 #'
 #' Unname chunks except 'setup' and flipbookr chunks that have include=FALSE
 #'
-#' @param path Path to Rmd file
+#' @param path Path to Rmd or qmd file
 #' @param chunk_name_prefix Character string with prefix of chunknames that will be removed.
 #' Default: NULL (indicating all chunknames will be removed except the one named 'setup' and
 #' any chunks with the include = FALSE option, to protect flipbookr references.)
@@ -48,7 +48,7 @@ check_chunk_codefig <- function(chunk_name = chunk_name) {
 #' @return Unnames chunks, except setup and include=FALSE chunks
 #' @export
 #'
-kjh_unname_chunks <- function (path, chunk_name_prefix = NULL) {
+kjh_unname_chunks <- function(path, chunk_name_prefix = NULL) {
 
   lines <- readLines(path)
   chunk_headers_info <- namer:::get_chunk_info(lines)
@@ -86,7 +86,7 @@ kjh_unname_chunks <- function (path, chunk_name_prefix = NULL) {
 #'
 #' @param indir The input directory, default "slides"
 #'
-#' @details All the Rmd files with their chunk names removed, except chunks labeled
+#' @details All the Rmd and qmd files with their chunk names removed, except chunks labeled
 #' 'setup' and chunks where include=FALSE, to protect chunk_reveal calls.
 #' Recurses 1 level (i.e. subdirs) by default.
 #' @export
@@ -102,8 +102,7 @@ kjh_unname_all_chunks <- function(indir = "slides") {
     stop("The input directory does not exist.")
   }
 
-  fnames <- get_files_of_type(ftype = "*.Rmd",
-                              indir = here::here(indir))
+  fnames <- get_rmd_qmd(indir = here::here(indir))
 
   fnames <- as.vector(dplyr::pull(fnames))
 
@@ -132,8 +131,7 @@ kjh_name_all_chunks <- function(indir = "slides") {
     stop("The input directory does not exist.")
   }
 
-  fnames <- get_files_of_type(ftype = "*.Rmd",
-                              indir = here::here(indir))
+  fnames <- get_rmd_qmd(indir = here::here(indir))
 
   fnames <- as.vector(dplyr::pull(fnames))
 

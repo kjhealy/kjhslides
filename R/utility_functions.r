@@ -87,7 +87,7 @@ check_in_out <- function(indir, outdir) {
 #'
 #' Get filepaths of given type, possibly recursively
 #'
-#' @param ftype Filetype glob, defaults to '*.Rmd'
+#' @param ftype Filetype regexp, defaults to '[.]Rmd|qmd$'
 #' @param indir Directory to begin search in
 #' @param depth Recursion depth, defaults to 1 (ie inside subfolders)
 #'
@@ -100,16 +100,25 @@ check_in_out <- function(indir, outdir) {
 #'  #EXAMPLE1
 #'  }
 #' }
-get_files_of_type <- function(ftype = "*.Rmd", indir, depth = 1){
+get_files_of_type <- function(ftype = "[.]Rmd|qmd$", indir, depth = 1){
   tibble::tibble(
     inpath =
       fs::dir_ls(
         path = here::here(indir),
         recurse = depth,
-        glob = ftype
+        regexp = ftype
       ))
 }
 
+#' @rdname get_files_of_type
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  get_rmd_qmd()
+#'  }
+#'  }
+#' @export
+get_rmd_qmd <- get_files_of_type
 
 #' Clear the systemfonts registry
 #'

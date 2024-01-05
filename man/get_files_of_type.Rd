@@ -2,12 +2,15 @@
 % Please edit documentation in R/utility_functions.R
 \name{get_files_of_type}
 \alias{get_files_of_type}
+\alias{get_rmd_qmd}
 \title{Get vector of filepaths}
 \usage{
-get_files_of_type(ftype = "*.Rmd", indir, depth = 1)
+get_files_of_type(ftype = "[.]Rmd|qmd$", indir, depth = 1)
+
+get_rmd_qmd(ftype = "[.]Rmd|qmd$", indir, depth = 1)
 }
 \arguments{
-\item{ftype}{Filetype glob, defaults to '*.Rmd'}
+\item{ftype}{Filetype regexp, defaults to '\link{.}Rmd|qmd$'}
 
 \item{indir}{Directory to begin search in}
 
@@ -25,4 +28,9 @@ if(interactive()){
  #EXAMPLE1
  }
 }
+\dontrun{
+if(interactive()){
+ get_rmd_qmd()
+ }
+ }
 }

@@ -2,6 +2,7 @@
 
 export(get_files_of_type)
 export(get_ggplot_colors)
+export(get_rmd_qmd)
 export(kjh_clear_registry)
 export(kjh_css_files)
 export(kjh_decktape_all_slides)
