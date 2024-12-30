@@ -1,3 +1,7 @@
+# kjhslides 0.0.1349000
+
+* Font experimentation
+
 # kjhslides 0.0.13.9000
 
 * Support qmd as well as Rmd

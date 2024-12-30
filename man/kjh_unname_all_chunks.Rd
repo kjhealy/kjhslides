@@ -13,7 +13,7 @@ kjh_unname_all_chunks(indir = "slides")
 Unname all Rmd chunks in the Rmd folders
 }
 \details{
-All the Rmd files with their chunk names removed, except chunks labeled
+All the Rmd and qmd files with their chunk names removed, except chunks labeled
 'setup' and chunks where include=FALSE, to protect chunk_reveal calls.
 Recurses 1 level (i.e. subdirs) by default.
 }

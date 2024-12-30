@@ -7,7 +7,7 @@
 kjh_unname_chunks(path, chunk_name_prefix = NULL)
 }
 \arguments{
-\item{path}{Path to Rmd file}
+\item{path}{Path to Rmd or qmd file}
 
 \item{chunk_name_prefix}{Character string with prefix of chunknames that will be removed.
 Default: NULL (indicating all chunknames will be removed except the one named 'setup' and
